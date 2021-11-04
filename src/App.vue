@@ -2,7 +2,7 @@
 <template>
   <v-app>
 
-    <v-navigation-drawer app color="secondary" dark v-model="drawer">
+    <v-navigation-drawer app dark v-model="drawer">
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6">
@@ -26,7 +26,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item to="about">
+        <v-list-item to="/about">
           <v-list-item-icon>
             <v-icon>mdi-help-circle</v-icon>
           </v-list-item-icon>
@@ -34,6 +34,37 @@
             <v-list-item-title>About</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+
+        <v-list-group :value="false" prepend-icon="mdi-palette-outline" active-class="yellow--text">
+          <template v-slot:activator>
+            <v-list-item-title>Styles</v-list-item-title>
+          </template>
+
+          <v-list-item to="/styles/textandtypography" color="white">
+            <v-list-item-icon></v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>Text and Typography</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item to="/styles/spacing" color="white">
+            <v-list-item-icon></v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>Margin and Padding</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+        </v-list-group>
+
+        <v-list-item to="/gridsystem">
+          <v-list-item-icon>
+            <v-icon>mdi-view-grid-outline</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>Gird System</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        
       </v-list>
 
     </v-navigation-drawer>
