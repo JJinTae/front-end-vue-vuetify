@@ -1,32 +1,85 @@
+<!-- 컴포넌트 UI 정의 -->
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+
+    <v-navigation-drawer app color="secondary" dark v-model="drawer">
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="text-h6">
+            Application
+          </v-list-item-title>
+          <v-list-item-subtitle>
+            with Vue + Vuetify
+          </v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list dense nav>
+        <v-list-item to="/">
+        <v-list-item-icon>
+          <v-icon>mdi-home</v-icon>
+        </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item to="about">
+          <v-list-item-icon>
+            <v-icon>mdi-help-circle</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>About</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+
+    </v-navigation-drawer>
+
+    <v-main>
+
+      <v-app-bar app color="secondary" dark>
+        <v-app-bar-nav-icon @click="drawer=!drawer"></v-app-bar-nav-icon>
+        <v-toolbar-title>Collapsing Bar</v-toolbar-title>
+      </v-app-bar>
+
+
+      <v-container fluid>
+        <router-view></router-view>
+      </v-container>
+
+    </v-main>
+
+    <v-footer app color="secondary" dark>
+      <div class="mx-auto">K.J.T</div>
+    </v-footer>
+
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+export default {
+  // 컴포넌트의 대표이름(devtools에 나오는 이름)
+  name: "App",
+  // 추가하고 싶은 컴포넌트 등록(import something from "/path")
+  components: {},
+  // 컴포넌트 데이터 정의
+  data() {
+    return {
+      drawer: false,
 
-#nav {
-  padding: 30px;
-}
+    };
+  },
+  // 컴포넌트 메소드 정의
+  methods: {},
+  props: [
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  ]
+};
+</script>
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+<!-- 컴포넌트 스타일 정의 -->
+<style scoped>
 </style>
